@@ -8,7 +8,7 @@ btnIn.addEventListener('click', (e) => {
     e.preventDefault();
     if(user.value === getUser && password.value === getPassword){
         setTimeout(() => {
-            window.location = "index.html"
+            window.location = "home.html"
         }, 1000)
     }
 })

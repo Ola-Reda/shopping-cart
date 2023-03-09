@@ -9,6 +9,8 @@ body {
 /*start header*/
 header {
     background-color: #f8f8f8;
+    padding: 6px;
+    position: relative;
 }
 /*start navbar*/
 nav .navbar-brand {
@@ -19,36 +21,83 @@ nav .nav-link, nav .navbar-brand {
     transition: all .4s ease-in;
 }
 nav .nav-link {
-    font-size: 20px;
-    margin-right: 10px;
+    font-size: 22px;
+    margin-right: 12px;
+    position: relative;
 }
 nav .nav-link:hover, nav .navbar-brand:hover {
     color: black;
 }
-/*end navbar*/
-/*end header*/
-/*start main*/
-main .content {
-    background-color: var(--second-color);
-    margin: 60px auto;
+nav .nav-item .badge {
+    font-size: 12px;
+    position: absolute;
+    top: 0px;
+    left: 32px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 50%;
 }
-main .content-header {
+/*end navbar*/
+/*start cart-products*/
+header .cart-products {
+    width: 210px;
+    padding: 20px 15px;
+    background-color: #dfe1e59c;
+    position: absolute;
+    right: 45px;
+    transform: translateY(6px);
+    border-radius: 3px;
+    z-index: 1;
+}
+header .cart-products.active {
+    display: none;
+}
+header .cart-products p {
+    color: var(--main-color);
+    font-size: 18px;
+    text-transform: capitalize;
+}
+header .cart-products a {
+    background-color: var(--main-color);
+    color: var(--second-color);
+    padding: 10px 20px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all .4s ease-in;
+}
+header .cart-products a:hover { 
+    background-color: #729ef9;
+}
+/*end cart-products*/
+/*end header*/
+/*start section main-content*/
+.main-content .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 64px);
+}
+.main-content .content {
+    width: 100%;
+    background-color: var(--second-color);
+}
+.main-content .content-header {
     background-color: var(--main-color);
     color: var(--second-color);
 }
-main .content-body input::placeholder{
+.main-content .content-body input::placeholder {
     opacity: 1;
     transition: .6s;
 }
-main .content-body input:focus::placeholder{
+.main-content .content-body input:focus::placeholder {
     opacity: 0;
 }
-main .content-body input:focus {
+.main-content .content-body input:focus {
     box-shadow: none;
     border-color: #ced4da;
     caret-color: var(--main-color);
 }
-main .content-body input[type="submit"] {
+.main-content .content-body input[type="submit"] {
     background-color: var(--main-color);
     color: var(--second-color);
     border-color: var(--main-color);
@@ -56,7 +105,36 @@ main .content-body input[type="submit"] {
     font-size: 20px;
     transition: all .4s ease-in;
 }
-main .content-body input[type="submit"]:hover {
+.main-content .content-body input[type="submit"]:hover {
     background-color: #729ef9;
+}
+.main-content .content-body p {
+    color: #777;
+}
+/*end section main-content*/
+/*start main*/
+main {
+    margin: 60px auto;
+}
+main h5 {
+    font-weight: 400;
+    color: var(--main-color);
+    text-transform: capitalize;
+}
+main p {
+    color: #777777;
+    margin-bottom: 22px;
+}
+main a {
+    background-color: var(--main-color);
+    color: var(--second-color);
+    padding: 10px 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all .4s ease-in;
+}
+main a:hover { 
+    background-color: #729ef9;
+    color: var(--second-color);
 }
 /*end main*/

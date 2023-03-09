@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title>Register</title>
         <link rel="icon" href="images/icon.png">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
@@ -15,40 +15,59 @@
     <body>
         <!--start header-->
         <header>
-            <!--start navbar-->
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container">
-                    <a class="navbar-brand" href="index.html">Shopping Cart</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <div class="container">
+                <!--start navbar-->
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container">
+                        <a class="navbar-brand" href="index.html">Shopping Cart</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="#" id="user"></a>
+                                <a class="nav-link" href="login.html">Sign In</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" id="log-out">Log Out</a>
+                                <a class="nav-link" href="index.html">Sign Up</a>
                             </li>
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
-            <!--end navbar-->
+                </nav>
+                <!--end navbar-->
+            </div>
         </header>
         <!--end header-->
-        <!--start main-->
-        <main>
+        <!--start section main-content-->
+        <section class="main-content">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-3">
+                <div class="content rounded">
+                    <div class="content-header rounded-top py-3">
+                        <h1 class="text-center">Register User</h1>
                     </div>
-                    
+                    <div class="content-body p-4">
+                        <form action="" autocomplete="off">
+                            <div class="mb-3 mt-3">
+                                <input type="text" class="form-control" placeholder="Enter Username" id="user" name="user">
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <input type="email" class="form-control" placeholder="Enter Email" id="email" name="email">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" placeholder="Enter Password" id="Password" name="Password">
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" value="Sign Up" id="sign-up" class="form-control">
+                            </div>
+                        </form>
+                        <p class="mb-0 text-center">Already Have An Account? <a class="text-decoration-none" href="login.html">Login</a></p>
+                    </div>
                 </div>
             </div>
-        </main>
-        <!--end main-->
+        </section>
+        <!--end section main-content-->
         <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/script.js"></script>
+        <script src="js/register.js"></script>
     </body>
 </html>

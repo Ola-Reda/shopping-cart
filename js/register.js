@@ -2,7 +2,6 @@ let user = document.querySelector("#user");
 let email = document.querySelector("#email");
 let password = document.querySelector("#Password");
 let btnUp = document.querySelector("#sign-up");
-let pws = "";
 
 btnUp.addEventListener('click', (e) =>{
     e.preventDefault();
@@ -13,7 +12,7 @@ btnUp.addEventListener('click', (e) =>{
         window.localStorage.setItem('email', email.value);
         window.localStorage.setItem('password', password.value);
         setTimeout(() => {
-            window.location = "index.html";
+            window.location = "home.html";
         },1000)
     }
 })
