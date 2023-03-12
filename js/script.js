@@ -1,38 +1,7 @@
-let userName = document.querySelector("#user");
-let btnOut = document.querySelector("#log-out");
-let check = localStorage.getItem("username");
 let cartProducts = document.querySelector(".cart-products");
 let cartBox = document.querySelector(".cart-products .products");
 let cartLink = document.querySelector(".cart-link");
 let badge = document.querySelector(".badge");
-//username 
-if (check) {
-    userName.textContent = check.charAt(0).toUpperCase() + check.slice(1);
-};
-//logout
-btnOut.addEventListener('click', () => {
-    window.location = 'login.html'
-})
-
-
-let data = [
-    {id:1, title:"perfume", price: 50, imageUrl: "images/12.webp",},
-    {id:12, title:"cream", price: 40, imageUrl: "images/product12.jpg"},
-    {id:13, title:"watch", price: 200, imageUrl: "images/watch.jpg"},
-    {id:2, title:"headphone", price: 80, imageUrl: "images/m.avif",},
-    {id:5, title:"skin care", price: 120, imageUrl: "images/1.jpg"},
-    {id:6, title:"phone", price: 500, imageUrl: "images/phone.jpg"},
-    {id:7, title:"laptop", price: 800, imageUrl: "images/laptop.jpg"},
-    {id:8, title:"skin care", price: 100, imageUrl: "images/jjjj.jpg"},
-    {id:9, title:"skin care", price: 100, imageUrl: "images/pruple.jpg"},
-    {id:10, title:"skin care", price: 90, imageUrl: "images/product14.jpg"},
-    {id:11, title:"glasses", price: 100, imageUrl: "images/aa.jpg"},
-    {id:3, title:"clothes", price: 200, imageUrl: "images/dd.jpg",},
-    {id:4, title:"headphone", price: 70, imageUrl: "images/headphone.jpg"},
-    {id:14, title:"clothes", price: 150, imageUrl: "images/jacket.jpg"},
-    {id:15, title:"hat", price: 30, imageUrl: "images/hat.jpg"},
-    {id:16, title:"camera", price: 200, imageUrl: "images/camera.jpg"},
-];
 
 //add item to page
 let box = document.querySelector(".row");
@@ -58,9 +27,18 @@ function addProducts() {
 addProducts();
 
 //add products to cart
+let addedItems = window.localStorage.getItem('products')? JSON.parse(window.localStorage.getItem('products')) : [];
+if(addedItems) {
+    addedItems.map((item)=>{
+        cartBox.innerHTML += `<p>${item.title}</p>`
+    })
+    badge.innerHTML += addedItems.length
+}
 function getItem(id) {
     let choosenItem = data.find(ele=> id=== ele.id)
     cartBox.innerHTML += `<p>${choosenItem.title}</p>`
+    addedItems = [...addedItems, choosenItem];
+    window.localStorage.setItem('products', JSON.stringify(addedItems))
     let cartProducts = document.querySelectorAll('.cart-products .products p')
     badge.innerHTML = cartProducts.length 
 }

@@ -1,0 +1,18 @@
+let data = [
+    {id:1, title:"perfume", price: 50, imageUrl: "images/12.webp",},
+    {id:12, title:"cream", price: 40, imageUrl: "images/product12.jpg"},
+    {id:13, title:"watch", price: 200, imageUrl: "images/watch.jpg"},
+    {id:2, title:"headphone", price: 80, imageUrl: "images/m.avif",},
+    {id:5, title:"skin care", price: 120, imageUrl: "images/1.jpg"},
+    {id:6, title:"phone", price: 500, imageUrl: "images/phone.jpg"},
+    {id:7, title:"laptop", price: 800, imageUrl: "images/laptop.jpg"},
+    {id:8, title:"skin care", price: 100, imageUrl: "images/jjjj.jpg"},
+    {id:9, title:"skin care", price: 100, imageUrl: "images/pruple.jpg"},
+    {id:10, title:"skin care", price: 90, imageUrl: "images/product14.jpg"},
+    {id:11, title:"glasses", price: 100, imageUrl: "images/aa.jpg"},
+    {id:3, title:"clothes", price: 200, imageUrl: "images/dd.jpg",},
+    {id:4, title:"headphone", price: 70, imageUrl: "images/headphone.jpg"},
+    {id:14, title:"clothes", price: 150, imageUrl: "images/jacket.jpg"},
+    {id:15, title:"hat", price: 30, imageUrl: "images/hat.jpg"},
+    {id:16, title:"camera", price: 200, imageUrl: "images/camera.jpg"},
+];

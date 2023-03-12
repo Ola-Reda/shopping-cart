@@ -137,4 +137,11 @@ main a:hover {
     background-color: #729ef9;
     color: var(--second-color);
 }
+main .no-products p {
+    background-color: var(--second-color);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 25px;
+}
 /*end main*/
