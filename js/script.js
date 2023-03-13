@@ -10,13 +10,17 @@ function addProducts() {
     return`
         <div class="col-md-6 col-lg-3">
             <div class="box mb-4">
-                <div class="card">
-                    <img src="${item.imageUrl}" class="card-img-top" alt="${item.title}">
+                <div class="card border-0">
+                    <a href="productDetails.html">
+                        <img src="${item.imageUrl}" class="card-img-top" alt="${item.title}">
+                    </a>
                     <div class="card-body pb-4">
                         <h5>${item.title}</h5>
-                        <p>Price: $${item.price}</p>
-                        <a href="#" onclick="getItem(${item.id})">Add To Cart</a>
-                        <i class="fa-regular fa-heart"></i>
+                        <div class="mb-2 d-flex align-items-center justify-content-between">
+                            <p>Price: $${item.price}</p>
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        <a class="adding" href="#" onclick="getItem(${item.id})">Add To Cart</a>
                     </div>
                 </div>
             </div>

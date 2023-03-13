@@ -14,7 +14,7 @@ function drawCartItems(products = []) {
                     <div class="card-body pb-4">
                         <h5>${item.title}</h5>
                         <p>Price: $${item.price}</p>
-                        <a href="#" onclick="removeItem(${item.id})">Remove From Cart</a>
+                        <a class="adding" href="#" onclick="removeItem(${item.id})">Remove From Cart</a>
                     </div>
                 </div>
             </div>
