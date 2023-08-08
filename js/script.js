@@ -3,48 +3,67 @@ let cartBox = document.querySelector(".cart-products .products");
 let cartLink = document.querySelector(".cart-link");
 let badge = document.querySelector(".badge");
 
-//add item to page
-let box = document.querySelector(".row");
-function addProducts() {
-    let draw = data.map(item => {
-    return`
+
+//get items to page
+let box = document.querySelector("main .row");
+let addProducts = function (data) {
+    let draw = ''
+    data.map(item => {
+    draw += `
         <div class="col-md-6 col-lg-3">
             <div class="box mb-4">
                 <div class="card border-0">
-                    <a href="productDetails.html">
+                    <a onclick="showItemDetails(${item.id})">
                         <img src="${item.imageUrl}" class="card-img-top" alt="${item.title}">
                     </a>
                     <div class="card-body pb-4">
                         <h5>${item.title}</h5>
-                        <div class="mb-2 d-flex align-items-center justify-content-between">
-                            <p>Price: $${item.price}</p>
-                            <i class="fa-regular fa-heart"></i>
-                        </div>
-                        <a class="adding" href="#" onclick="getItem(${item.id})">Add To Cart</a>
+                        <p>Price: $${item.price}</p>
+                        <button class="adding" href="#" onclick="addItem(${item.id})">Add To Cart</button>
                     </div>
                 </div>
             </div>
         </div>`;
-    }).join('');
+    });
     box.innerHTML = draw;
 }
-addProducts();
+addProducts(data);
 
-//add products to cart
-let addedItems = window.localStorage.getItem('products')? JSON.parse(window.localStorage.getItem('products')) : [];
+
+//add productsItems to cart
+let addedItems = window.localStorage.getItem('productsItems')? JSON.parse(window.localStorage.getItem('productsItems')) : [];
 if(addedItems) {
     addedItems.map((item)=>{
-        cartBox.innerHTML += `<p>${item.title}</p>`
+        cartBox.innerHTML += `<p>${item.title} ${item.amount}</p>`
     })
     badge.innerHTML += addedItems.length
 }
-function getItem(id) {
-    let choosenItem = data.find(ele=> id=== ele.id)
-    cartBox.innerHTML += `<p>${choosenItem.title}</p>`
+let updatedItems = [];
+function addItem(id) {
+    let choosenItem = data.find(ele=> id === ele.id);
+    let item = updatedItems.find(item=> item.id === choosenItem.id)
+    if(item){
+        choosenItem.amount += 1
+    }else {
+        updatedItems.push(choosenItem)
+    }
+    cartBox.innerHTML = ""
+    updatedItems.forEach((item)=> {
+        cartBox.innerHTML += `<p>${item.title} ${item.amount}</p>`
+    })
     addedItems = [...addedItems, choosenItem];
-    window.localStorage.setItem('products', JSON.stringify(addedItems))
-    let cartProducts = document.querySelectorAll('.cart-products .products p')
-    badge.innerHTML = cartProducts.length 
+    let UniqueItems = getUniqueItem(addedItems, id)
+    window.localStorage.setItem('productsItems', JSON.stringify(UniqueItems))
+    let cartProductsItems = document.querySelectorAll('.cart-products .products p')
+    badge.innerHTML = cartProductsItems.length; 
+    
+}
+
+//not to repeat item
+function getUniqueItem(array, id) {
+    let uniqueItem = array.map(item=> item.id).map((ele, index, arr)=> {return arr.indexOf(ele) == index && index})
+    .filter(item=> Number.isInteger(item)).map(item=> array[item])
+    return uniqueItem
 }
 
 //show cartMenu
@@ -53,5 +72,28 @@ function openCartMenu() {
     if(cartBox.innerHTML !== ''){
         cartProducts.classList.toggle('active')
     }
+}
+
+//show ItemDetails page
+function showItemDetails (id) {
+    console.log(id);
+    localStorage.setItem("productId", id)
+    window.location = 'productDetails.html'
+}
+
+
+//search by productName
+let searchInput = document.getElementById('search');
+searchInput.addEventListener('input', function(e) {
+    searchItemName(e.target.value,data)
+    if(e.target.value.trim() == ''){
+        addProducts(data)
+    }
+
+});
+function searchItemName (value, data) {
+    let searchItem = data.filter(item=> item.title.includes(value))
+    console.log(searchItem)
+    addProducts(searchItem);
 }
 

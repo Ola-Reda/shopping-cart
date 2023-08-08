@@ -75,7 +75,7 @@ header .cart-products a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 64px);
+    height: calc(100vh - 77px);
 }
 .main-content .content {
     width: 100%;
@@ -116,8 +116,28 @@ header .cart-products a:hover {
 main {
     margin: 60px auto;
 }
+main .search-box {
+    margin-bottom: 20px;
+}
+main input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--main-color);
+    outline: none;
+    padding: 8px 10px;
+    caret-color: var(--main-color);
+}
+main input::placeholder {
+    opacity: 1;
+    transition: .6s;
+}
+main input:focus::placeholder {
+    opacity: 0;
+}
 main img {
     height: 300px;
+    object-fit: fill;
+    cursor: pointer;
 }
 main h5 {
     font-weight: 400;
@@ -126,20 +146,22 @@ main h5 {
 }
 main p {
     color: #777777;
-    margin-bottom: 0px;
+    margin-bottom: 4px;
 }
-main a.adding {
-    display: block;
-    text-align: center;
+main span {
+    color: #777777;
+}
+main button.adding {
+    width: 100%;
     background-color: var(--main-color);
     color: var(--second-color);
     padding: 10px 25px;
     border-radius: 4px;
+    border: none;
     margin-top: 14px;
-    text-decoration: none;
     transition: all .4s ease-in;
 }
-main a.adding:hover { 
+main button.adding:hover { 
     background-color: #729ef9;
     color: var(--second-color);
 }
